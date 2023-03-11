@@ -10,7 +10,7 @@ N/A
 
 ## Usage
 
-View the deployed application.
+View the [deployed application](https://sendusyourbones.github.io/daily-planner/).
 
 - To add a task to an hour, click the rectangle for the hour and type the task to be completed. Click the Save icon.
 - Hours that have passed will have a grey background
