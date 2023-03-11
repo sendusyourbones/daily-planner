@@ -35,8 +35,17 @@ $(document).ready(function () {
       task: task
     };
 
-    // Add event to tasks array
-    tasks.push(entry);
+    // Check whether the entry hour is already in tasks, get the index
+    const existingIndex = tasks.findIndex((element) => element.hour === hour);
+
+    // If the index is greater than or equal to 0 this means the entry has already been saved
+    if (existingIndex >= 0) {
+      // Replace existing entry
+      tasks.splice(existingIndex, 1, entry);
+    } else {
+      // Otherwise push the entry to the tasks array
+      tasks.push(entry);
+    }
 
     // Stringify tasks array and add to local storage
     localStorage.setItem('tasks', JSON.stringify(tasks));
