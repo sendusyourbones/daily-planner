@@ -27,11 +27,11 @@ $(document).ready(function () {
       task: task
     };
 
-    // Add event to events array
-    events.push(entry);
+    // Add event to tasks array
+    tasks.push(entry);
 
-    // Stringify events array and add to local storage
-    localStorage.setItem('events', JSON.stringify(events));
+    // Stringify tasks array and add to local storage
+    localStorage.setItem('tasks', JSON.stringify(tasks));
   });
 
   //
@@ -67,12 +67,25 @@ $(document).ready(function () {
   // attribute of each time-block be used to do this?
   //
 
-  // Get events from local storage
-  let events = JSON.parse(localStorage.getItem('events'));
+  // Get tasks from local storage
+  let tasks = JSON.parse(localStorage.getItem('tasks'));
 
-  // If nothing in local storage, set events to empty array
-  if (!events) {
-    events = [];
+  // If nothing in local storage, set tasks to empty array
+  if (!tasks) {
+    tasks = [];
   }
+
+  function showTasks() {
+    // For each item in tasks array
+    tasks.forEach((element) => {
+      // Find HTML element with id that matches the item's hour
+      // Find HTML element's textarea child
+      // Set that HTML element's text content to the item's task
+      $('#' + element.hour).children('textarea').text(element.task);
+    });
+  }
+
+  showTasks();
+
   // TODO: Add code to display the current date in the header of the page.
 });
