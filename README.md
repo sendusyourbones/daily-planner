@@ -24,6 +24,7 @@ View the [deployed application](https://sendusyourbones.github.io/daily-planner/
 - [Bootstrap](https://getbootstrap.com/) used for styling
 - [jQuery](https://jquery.com/) used to manipulate elements and handle events
 - [day.js](https://day.js.org/) used to get the current date and time
+- I learned about the findIndex function used within my event listener on [Stack Overflow](https://stackoverflow.com/questions/8217419/how-to-determine-if-javascript-array-contains-an-object-with-an-attribute-that-e)
 
 ## License
 
