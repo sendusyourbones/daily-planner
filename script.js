@@ -4,6 +4,23 @@ $(document).ready(function () {
   const $hourDivs = $('.time-block');
   const $currentDay = $('#currentDay');
 
+  // Get tasks from local storage
+  let tasks = JSON.parse(localStorage.getItem('tasks'));
+
+  // If nothing in local storage, set tasks to empty array
+  if (!tasks) {
+    tasks = [];
+  }
+
+  // Call the three functions when page loads
+  function init() {
+    applyClass();
+    showTasks();
+    showCurrentDay();
+  }
+
+  init();
+
   // When save button is clicked
   $saveButton.on('click', function() {
     // Get value of clicked button's parent element's id
@@ -44,15 +61,6 @@ $(document).ready(function () {
       }
     });
   }
-  applyClass();
-
-  // Get tasks from local storage
-  let tasks = JSON.parse(localStorage.getItem('tasks'));
-
-  // If nothing in local storage, set tasks to empty array
-  if (!tasks) {
-    tasks = [];
-  }
 
   function showTasks() {
     // For each item in tasks array
@@ -64,8 +72,6 @@ $(document).ready(function () {
     });
   }
 
-  showTasks();
-
   function showCurrentDay() {
     // Get current day and modify format ex. Friday, March 20, 2023
     const currentDay = dayjs().format('dddd, MMMM D, YYYY');
@@ -73,6 +79,4 @@ $(document).ready(function () {
     // Set text of currentDay element to the above
     $currentDay.text(currentDay);
   }
-
-  showCurrentDay();
 });
